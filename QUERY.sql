@@ -79,3 +79,8 @@ inner join matches as m on b.match_id = m.match_id
 --query 5
 select u.user_id, full_name, booking_id from users as u
 left join bookings as b on u.user_id = b.user_id
+
+
+--query 6
+select booking_id, match_id, total_cost from bookings
+where total_cost > (select avg(total_cost) from bookings)
